@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="un.app1.pageModule.pagePulsa.PulsaPresenter" />
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        tools:context="un.app1.pageModule.pagepulsa.ActivityPulsa">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#efefef">
+
+            <RelativeLayout
+                android:id="@+id/layoutInput"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/layout_header_pulsa">
+
+                <RelativeLayout
+                    android:id="@+id/layoutBack"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:onClick="@{() -> presenter.onCloseActivity()}">
+
+                    <ImageView
+                        android:id="@+id/imageBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        card_view:srcCompat="@drawable/zzz_backburger" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutHistory"
+                    android:layout_width="42dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:onClick="@{() -> presenter.onOpenHistory()}">
+
+                    <ImageView
+                        android:id="@+id/imageHistory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        card_view:srcCompat="@drawable/zzz_history" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutSaveNumber"
+                    android:layout_width="42dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/layoutHistory"
+                    android:onClick="@{() -> presenter.onOpenAddFrom()}">
+
+                    <ImageView
+                        android:id="@+id/imageList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        card_view:srcCompat="@drawable/zzz_attachment" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutLoader"
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/layoutSaveNumber"
+                    android:gravity="center"
+                    android:visibility="invisible">
+
+                    <com.leo.simplearcloader.SimpleArcLoader
+                        android:id="@+id/arcLoader"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="visible"
+                        custom:arc_colors="@array/colorsArcLoader"
+                        custom:arc_margin="3dp"
+                        custom:arc_speed="medium"
+                        custom:arc_style="simple_arc"
+                        custom:arc_thickness="2dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutInputNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/layoutBack"
+                    android:layout_toStartOf="@+id/layoutLoader">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="3dp"
+                        android:gravity="center"
+                        android:paddingLeft="3dp"
+                        android:text="+62"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+
+                    <EditText
+                        android:id="@+id/input_number"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@+id/textView"
+                        android:background="#00000000"
+                        android:ems="10"
+                        android:hint="..."
+                        android:inputType="number"
+                        android:letterSpacing="0.1"
+                        android:maxLength="13"
+                        android:paddingLeft="4dp"
+                        android:textColorHint="#999999"
+                        android:textSize="18sp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/layoutInput"
+                android:layout_marginTop="4dp">
+
+                <RelativeLayout
+                    android:id="@+id/layoutErrorDenom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/textRetry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:onClick="@{() -> presenter.onClicRetry()}"
+                        android:text="Retry..."
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/textRetry"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="27dp"
+                        android:text="Something went wrong.." />
+
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/textView7"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="13dp"
+                        custom:srcCompat="@drawable/ic_no_internet" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutShowDenom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:visibility="visible">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerDenomListrik"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/layoutBuy"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:clipToPadding="false"
+                        android:nestedScrollingEnabled="false"
+                        android:paddingBottom="5dp"
+                        android:scrollbars="none" />
+
+                    <RelativeLayout
+                        android:id="@+id/layoutBuy"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"
+                        android:background="@drawable/square_shape_no_corner"
+                        android:onClick="@{() -> presenter.onClickBuy()}"
+                        android:visibility="invisible">
+
+                        <TextView
+                            android:id="@+id/textBuy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="Confirm"
+                            android:textSize="20sp" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

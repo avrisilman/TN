@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="un.app1.pageModule.pageRegister.RegisterPresenter" />
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="un.app1.pageModule.pageregister.ActivityRegister">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/layoutClose"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:onClick="@{() -> presenter.onCloseActivity()}">
+
+                <ImageView
+                    android:id="@+id/imageClose"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    card_view:srcCompat="@drawable/ic_close" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutUserName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/layoutClose"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/input_login">
+
+                <RelativeLayout
+                    android:id="@+id/layoutRegUsername"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true">
+
+                    <ImageView
+                        android:id="@+id/imageAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        card_view:srcCompat="@drawable/zzz_account" />
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/layoutRegUsername"
+                    android:layout_toStartOf="@+id/layourErrorAcount"
+                    android:background="#00000000"
+                    android:ems="10"
+                    android:hint="user name"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:textColor="#444444"
+                    android:textColorHint="#999999"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:id="@+id/layourErrorAcount"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#00000000">
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/layoutUserName"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/input_login">
+
+                <RelativeLayout
+                    android:id="@+id/layoutImageEmail"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true">
+
+                    <ImageView
+                        android:id="@+id/imageEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        card_view:srcCompat="@drawable/zzz_email_outline" />
+
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/editText3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/layoutImageEmail"
+                    android:layout_toStartOf="@+id/layourErrorEmail"
+                    android:background="#00000000"
+                    android:ems="10"
+                    android:hint="email"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="5dp"
+                    android:textColor="#444444"
+                    android:textColorHint="#999999"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:id="@+id/layourErrorEmail"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true">
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/layoutEmail"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/input_login">
+
+                <RelativeLayout
+                    android:id="@+id/layoutImagePhoneNumber"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true">
+
+                    <ImageView
+                        android:id="@+id/imagePhoneNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        card_view:srcCompat="@drawable/zzz_cellphone" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/layoutImagePhoneNumber"
+                    android:paddingLeft="5dp"
+                    android:text="+62"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editText5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/textView8"
+                    android:layout_toStartOf="@+id/layourErrorPhoneNumber"
+                    android:background="#00000000"
+                    android:ems="10"
+                    android:hint=""
+                    android:inputType="number"
+                    android:paddingLeft="5dp"
+                    android:textColor="#444444"
+                    android:textColorHint="#999999"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:id="@+id/layourErrorPhoneNumber"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true">
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/layoutPhoneNumber"
+                android:layout_below="@+id/layoutPhoneNumber"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/input_login">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="Register Now"
+                    android:textColor="#555555"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/layoutUserName"
+                android:layout_alignStart="@+id/layoutUserName"
+                android:layout_alignTop="@+id/layoutClose"
+                android:gravity="center"
+                android:text="Register"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="un.app1">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />-->
+    <!--<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />-->
+
+    <application
+        android:name=".MainApp"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_un_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppFullScreenTheme">
+        <activity android:name=".pageModule.pageSplash.ActivitySplash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".appNetwork.internet.ConnectivityReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <!--   Defining Services -->
+        <service android:name=".appCommon.firebase.ServiceMessage">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".appCommon.firebase.FcmId">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!--<receiver android:name=".appservice.ServiceReceiver">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="android.intent.action.BOOT_COMPLETED" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
+        <!--<service android:name="appservice.AppService" />-->
+
+        <activity
+            android:name=".pageModule.pageSplash.AppWelcome"
+            android:theme="@style/SampleWelcomeScreenTheme" />
+
+        <activity
+            android:name=".pageModule.pageNotif.ActivityNotif"
+            android:theme="@style/DefaultTheme" />
+
+        <activity
+            android:name=".pageModule.pageProfile.ActivityProfile"
+            android:theme="@style/DefaultTheme" />
+
+        <activity
+            android:name=".pageModule.appHome.ActivityHome"
+            android:theme="@style/AppFullScreenTheme" />
+
+        <!--login register forgot password-->
+        <activity
+            android:name=".pageModule.pageLogin.ActivityLogin"
+            android:theme="@style/DefaultTheme" />
+
+        <activity
+            android:name=".pageModule.pageRegister.ActivityRegister"
+            android:theme="@style/DefaultTheme" />
+
+        <activity
+            android:name=".pageModule.pageForgot.ActivityForgotPassword"
+            android:theme="@style/DefaultTheme" />
+
+        <!--mama minta pulsa-->
+        <activity
+            android:name=".pageModule.pagePulsa.ActivityPulsa"
+            android:theme="@style/pulsaTheme" />
+
+        <!--awas kesetrum-->
+        <activity
+            android:name=".pageModule.pageListrik.ActivityListrik"
+            android:theme="@style/listrikTheme" />
+
+        <activity
+            android:name=".pageModule.pageListrik.historylistrik.ActivityHistoryListrik"
+            android:theme="@style/listrikTheme" />
+
+    </application>
+
+</manifest>

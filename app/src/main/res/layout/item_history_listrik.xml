@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="un.app1.pageModule.pageListrik.model.HistoryPayment" />
+
+        <variable
+            name="historyPayment"
+            type="HistoryPayment" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp">
+
+        <RelativeLayout
+            android:id="@+id/card_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/square_shape"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:hint="Token Listrik"
+                android:text="@{historyPayment.product}"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textInfoPrabayar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textProduct"
+                android:layout_marginTop="3dp"
+                android:hint="Prabayar"
+                android:text="@{historyPayment.productDescription}"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textInfoPrabayar"
+                android:layout_marginTop="3dp"
+                android:background="#30999999">
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textOrderDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView9"
+                android:layout_alignParentEnd="true"
+                android:hint="2017-02-25"
+                android:text="@{historyPayment.orderDate}"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textInfoAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView9"
+                android:layout_marginTop="5dp"
+                android:text="Amount"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textInfoAdminFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textInfoAmount"
+                android:layout_marginTop="3dp"
+                android:text="Admin Fee"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textInfoTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textInfoAdminFee"
+                android:layout_marginTop="4dp"
+                android:text="Total"
+                android:textColor="@color/blue"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textInfoAdminFee"
+                android:layout_alignParentEnd="true"
+                android:hint="20000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textAdminFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textInfoAdminFee"
+                android:layout_alignBottom="@+id/textInfoAdminFee"
+                android:layout_alignParentEnd="true"
+                android:hint="1000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TextStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/textTotal"
+                android:layout_marginTop="7dp"
+                android:hint="Success"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textInfoTotal"
+                android:layout_alignBottom="@+id/textInfoTotal"
+                android:layout_alignParentEnd="true"
+                android:hint="21000"
+                android:textColor="@color/blue"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>
+
+

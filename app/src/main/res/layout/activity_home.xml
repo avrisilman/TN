@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="un.app1.pageModule.appHome.HomeViewModel" />
+
+        <variable
+            name="presenter"
+            type="un.app1.pageModule.appHome.HomePresenter" />
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="un.app1.pageModule.apphome.ActivityHome">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/layoutBanner"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/colorDarkWhite">
+
+                <ss.com.bannerslider.views.BannerSlider
+                    android:id="@+id/bannerSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:animateIndicators="true"
+                    app:loopSlides="true" />
+
+                <TextView
+                    android:id="@+id/textRetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:hint="Retry.."
+                    android:onClick="@{() -> presenter.onClickRetry()}"
+                    android:padding="10dp"
+                    android:text="@{viewModel.clickRetry}"
+                    android:textColor="@color/colorLightkWhite"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <com.leo.simplearcloader.SimpleArcLoader
+                    android:id="@+id/arcLoader"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="gone"
+                    custom:arc_colors="@array/colorsArcLoader"
+                    custom:arc_margin="3dp"
+                    custom:arc_speed="medium"
+                    custom:arc_style="simple_arc"
+                    custom:arc_thickness="2dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutHomeDashboard"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/layoutBanner"
+                android:background="@drawable/layout_dashboard">
+
+                <RelativeLayout
+                    android:id="@+id/layoutHomeDashboardBlank"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/layout_dashboard"
+                    android:visibility="visible">
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutHomeDashboardChecking"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/layout_dashboard"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <com.github.silvestrpredko.dotprogressbar.DotProgressBar
+                        android:id="@+id/dotLoadingPreview"
+                        android:layout_width="30dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="3dp"
+                        android:visibility="visible"
+                        custom:amount="3"
+                        custom:animationDirection="right"
+                        custom:duration="@android:integer/config_mediumAnimTime"
+                        custom:endColor="@color/light_blue_A400"
+                        custom:startColor="@color/light_blue_A700" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutHomeDashboardSignOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/layout_dashboard"
+                    android:gravity=""
+                    android:padding="10dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/textLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"
+                        android:onClick="@{() -> presenter.onClickLogin()}"
+                        android:text="Login"
+                        android:textColor="@color/blue" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Don't have an account, click login or register"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/textLogin"
+                        android:layout_marginStart="30dp"
+                        android:layout_toEndOf="@+id/textLogin"
+                        android:onClick="@{() -> presenter.onClickRegister()}"
+                        android:text="Register"
+                        android:textColor="@color/blue" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutHomeDashboardSignIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/layout_dashboard"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:id="@+id/layoutContentDashboard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:padding="5dp"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:id="@+id/layoutLogout"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_toStartOf="@+id/layoutNotification"
+                            android:onClick="@{() -> presenter.onClickLogOut()}"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/imageLogout"
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                fab:srcCompat="@drawable/ic_menu_1" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/layoutMenu"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:onClick="@{() -> presenter.onClickLogOut()}">
+
+                            <ImageView
+                                android:id="@+id/imagePreference"
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                fab:srcCompat="@drawable/ic_menu_1" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/layoutNotification"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_toStartOf="@+id/layoutMenu"
+                            android:onClick="@{() -> presenter.onClickNotif()}">
+
+                            <ImageView
+                                android:id="@+id/imageNotification"
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                fab:srcCompat="@drawable/ic_menu_1" />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/layoutUserOrLogo"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp">
+
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:id="@+id/image_user"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:scaleType="centerCrop"
+                            app:civ_border_color="#CADDDDDD"
+                            app:civ_border_width="0dp"
+                            app:civ_shadow="true"
+                            app:civ_shadow_color="#CADDDDDD"
+                            app:civ_shadow_radius="0" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/textUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/layoutUserOrLogo"
+                        android:layout_toEndOf="@+id/layoutUserOrLogo"
+                        android:hint="UserName"
+                        android:text="@{viewModel.userName}"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/textBalance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textUserName"
+                        android:layout_marginTop="2dp"
+                        android:layout_toEndOf="@+id/layoutUserOrLogo"
+                        android:hint="IDR 7.560.000"
+                        android:text="@{viewModel.balance}"
+                        android:textSize="12sp" />
+
+                    <com.github.silvestrpredko.dotprogressbar.DotProgressBar
+                        android:id="@+id/dotProgressBar"
+                        android:layout_width="30dp"
+                        android:layout_height="15dp"
+                        android:layout_alignBottom="@+id/textBalance"
+                        android:layout_alignTop="@+id/textBalance"
+                        android:layout_marginLeft="3dp"
+                        android:layout_toEndOf="@+id/textBalance"
+                        android:visibility="gone"
+                        custom:amount="3"
+                        custom:animationDirection="right"
+                        custom:duration="@android:integer/config_mediumAnimTime"
+                        custom:endColor="@color/light_blue_A400"
+                        custom:startColor="@color/light_blue_A700" />
+
+                    <TextView
+                        android:id="@+id/textLastLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textBalance"
+                        android:layout_marginTop="1dp"
+                        android:layout_toEndOf="@+id/layoutUserOrLogo"
+                        android:hint="last login"
+                        android:text="@{viewModel.lastLogin}"
+                        android:textSize="9sp" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutMainMenu"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/layoutHomeDashboard"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:paddingTop="0dp">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerMainMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="vertical" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layoutMainContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/layoutMainMenu"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Content Home"
+                    android:textColor="@color/blue_grey" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView4"
+                    android:layout_marginTop="5dp"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:scrollbars="vertical"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

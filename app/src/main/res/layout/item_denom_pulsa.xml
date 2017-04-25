@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="un.app1.pageModule.pagePulsa.model.DenomPulsa" />
+
+        <variable
+            name="denomPulsa"
+            type="DenomPulsa" />
+
+        <variable
+            name="onClick"
+            type="un.app1.pageModule.pagePulsa.pulsaAdapter.PulsaClickHandler" />
+
+    </data>
+
+    <un.app1.appCommon.custom.CheckedRelativeLayout
+        android:id="@+id/layoutCheckableParent"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_margin="1dp"
+        android:background="@drawable/square_shape"
+        android:onClick="@{onClick::onClick}">
+
+        <un.app1.appCommon.custom.CheckedRelativeLayout
+            android:id="@+id/layoutCheckableImage"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:background="#00000000"
+            android:visibility="visible">
+
+            <un.app1.appCommon.custom.CheckableImageView
+                android:id="@+id/imageCheckList"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="10dp"
+                android:checked="false"
+                android:src="@drawable/item_image_checked"
+                android:visibility="gone" />
+
+        </un.app1.appCommon.custom.CheckedRelativeLayout>
+
+        <un.app1.appCommon.custom.CheckedRelativeLayout
+            android:id="@+id/layoutCheckableDenom"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:gravity="center">
+
+            <CheckedTextView
+                android:id="@+id/textDenomA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:checked="false"
+                android:text="1.000"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@drawable/item_text_checked"
+                android:textSize="40.3sp"
+                android:visibility="visible" />
+
+            <CheckedTextView
+                android:id="@+id/textDenomB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/textDenomA"
+                android:gravity="center"
+                android:text=".000"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@drawable/item_text_checked"
+                android:textSize="17.6sp"
+                android:visibility="visible" />
+
+            <CheckedTextView
+                android:id="@+id/textCurrency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textDenomB"
+                android:layout_alignBottom="@+id/textDenomB"
+                android:layout_toStartOf="@+id/textDenomA"
+                android:checked="false"
+                android:paddingTop="0sp"
+                android:text="Rp "
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@drawable/item_text_checked"
+                android:textSize="18sp"
+                android:visibility="visible" />
+
+            <CheckedTextView
+                android:id="@+id/textPpn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textDenomA"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="0dp"
+                android:checked="false"
+                android:text="Fee Rp. 2.000"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@drawable/item_text_checked"
+                android:textSize="13sp"
+                android:visibility="visible" />
+
+        </un.app1.appCommon.custom.CheckedRelativeLayout>
+
+    </un.app1.appCommon.custom.CheckedRelativeLayout>
+
+</layout>
+
+
